@@ -1,0 +1,1 @@
+web: gunicorn question_similarity/question_similarity.wsgi
