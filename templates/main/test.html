@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Test the models
+{% endblock %}
+
+{% block content %}
+    <ul class="nav justify-content-center nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href="{% url 'test'%}">Test</a>
+        </li>
+    </ul>
+
+    <div class="row justify-content-center">
+        <form method="post" class = "col-6">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Question 1</label>
+                <input name = "question_1" class="form-control" type="text" placeholder="Please enter first question"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Question 2</label>
+                <input name = "question_2" class="form-control" type="text" placeholder="Please enter second question"/>        </div>
+            <button type="submit" class="btn btn-primary">Evaluate</button>
+        </form>
+    </div>
+    {{results}}
+{% endblock %}
