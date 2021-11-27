@@ -1,7 +1,7 @@
 compressed/
 dataset/
 *env/
-models/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
