@@ -1,6 +1,7 @@
 compressed/
 dataset/
 # models/
+requirements1.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
