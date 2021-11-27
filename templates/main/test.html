@@ -27,5 +27,20 @@ Test the models
             <button type="submit" class="btn btn-primary">Evaluate</button>
         </form>
     </div>
-    {{results}}
+    <table class="table container table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Models</th>
+                <th scope="col">Predicted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for k, v in result.items %}
+                <tr>
+                    <td>{{k}}</td>
+                    <td>{{v}}</td>
+                </tr>
+            {% endfor %}          
+        </tbody>
+    </table>
 {% endblock %}
