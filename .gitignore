@@ -1,7 +1,7 @@
 compressed/
 dataset/
 *env/
-
+requirements1.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
