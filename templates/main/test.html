@@ -19,28 +19,32 @@ Test the models
             {% csrf_token %}
             <div class="mb-3">
                 <label class="form-label">Question 1</label>
-                <input name = "question_1" class="form-control" type="text" placeholder="Please enter first question"/>
+                <input value = "{{q1}}" name = "question_1" class="form-control" type="text" placeholder="Please enter first question"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Question 2</label>
-                <input name = "question_2" class="form-control" type="text" placeholder="Please enter second question"/>        </div>
+                <input value = "{{q2}}" name = "question_2" class="form-control" type="text" placeholder="Please enter second question"/>        </div>
             <button type="submit" class="btn btn-primary">Evaluate</button>
         </form>
     </div>
-    <table class="table container table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Models</th>
-                <th scope="col">Predicted</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for k, v in result.items %}
+    {% if result %}
+    <div class="container col-6">
+        <table class="table table-hover table-striped">
+            <thead>
                 <tr>
-                    <td>{{k}}</td>
-                    <td>{{v}}</td>
+                    <th scope="col">Models</th>
+                    <th scope="col">Predicted</th>
                 </tr>
-            {% endfor %}          
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for k, v in result.items %}
+                    <tr>
+                        <td>{{k}}</td>
+                        <td>{{v}}</td>
+                    </tr>
+                {% endfor %}          
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
 {% endblock %}

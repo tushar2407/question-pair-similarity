@@ -16,9 +16,9 @@ def home(request):
     return render(request, 'main/home.html', context={'files':context})
 
 def test(request):
-    result = {}
     
     if request.method == 'POST':
+        result = {}
         question_1 = normalize_text( request.POST.get('question_1', ''))
         question_2 = normalize_text( request.POST.get('question_2', ''))
         result['Unigram with Logistic Regression'] = uni_lr(question_1, question_2)[0]
@@ -28,5 +28,14 @@ def test(request):
         result['Trigram with Logistic Regression'] = tri_lr(question_1, question_2)[0]
         result['Trigram with XGBoost'] = tri_xg(question_1, question_2)[0]
         # result['LSTM with MLP'] = lstm_mlp(question_1, question_2)[0][0]
-
-    return render(request, 'main/test.html', context={'result':result})
+        return render(
+            request, 
+            'main/test.html', 
+            context={
+                'result' : result,
+                'q1': request.POST.get('question_1', ''),
+                'q2': request.POST.get('question_2', '')
+            }
+        )
+    
+    return render(request, 'main/test.html')
