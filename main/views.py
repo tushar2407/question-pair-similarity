@@ -7,11 +7,13 @@ from main.utils import (
     normalize_text, 
     # lstm_mlp
 )
-
+from question_similarity.settings import BASE_DIR, STATIC_URL, STATICFILES_DIRS
+import os
 # Create your views here.
 
 def home(request):
-    return render(request, 'main/home.html')
+    context = list(map(lambda x : f'{STATIC_URL}{x}', os.listdir(f'{STATICFILES_DIRS[0]}')))
+    return render(request, 'main/home.html', context={'files':context})
 
 def test(request):
     result = {}

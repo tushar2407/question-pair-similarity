@@ -16,4 +16,14 @@ Question Pair Similarity
 
 <h2> Exploratory Data Analysis </h2>
 <p>Here all the train EDA comes</p>
+<div class="container row">
+  {% for file in files %}
+    <div class=" col-8 p-2">
+      <img src="{{file}}" alt="{{file}}">
+    </div>
+    <hr>
+    <!-- </br>  -->
+  {% endfor %}
+</div>
+
 {% endblock %}
