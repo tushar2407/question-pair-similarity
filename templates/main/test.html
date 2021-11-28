@@ -40,7 +40,11 @@ Test the models
                 {% for k, v in result.items %}
                     <tr>
                         <td>{{k}}</td>
-                        <td>{{v}}</td>
+                        {% if v %}
+                        <td>Duplicates</td>
+                        {% else %}
+                        <td>Not Duplicates</td>
+                        {% endif %}
                     </tr>
                 {% endfor %}          
             </tbody>
